@@ -11,17 +11,20 @@
       let playerSelection = prompt('Please select rock, paper or scissor');
       let computerSelection;
 
+      
+        if (playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissor") {
+          console.log('sweet');
+        } else {
+          alert("Please choose Rock, Paper, or Scissors!!");
+          playerSelection = prompt('Please select rock, paper or scissor');
+        }
+
       function computerPlay() {
-          let compRandom = options[Math.floor(Math.random() * 3)];
-          computerSelection = compRandom;
+          computerSelection = options[Math.floor(Math.random() * 3)];
           return computerSelection;
       } 
 
       
-
-
-
-
   </script>
 </body>
 </html>
