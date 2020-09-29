@@ -6,25 +6,24 @@
 </head>
 <body>
   <script>
-      const options = ['Rock', 'Paper', 'Scissor'];
+    const options = ['Rock', 'Paper', 'Scissor'];
 
-      let playerSelection = prompt('Please select rock, paper or scissor');
-      let computerSelection;
+    let playerSelection = prompt('Please select rock, paper or scissor');
+    let computerSelection;
 
-      
-        if (playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissor") {
-          console.log('sweet');
-        } else {
-          alert("Please choose Rock, Paper, or Scissors!!");
-          playerSelection = prompt('Please select rock, paper or scissor');
-        }
+    //This is pretty ugly, can probably be simplified! 
+    if (playerSelection.toLowerCase() === "rock" || playerSelection.toLowerCase() === "paper" || playerSelection.toLowerCase() === "scissor") {
+      console.log('sweet');
+    } else {
+      alert("That is not an option");
+      playerSelection = prompt('Please select rock, paper or scissor');
+    } //This only runs once, even if you get it wrong twice..... hmmmm
 
-      function computerPlay() {
-          computerSelection = options[Math.floor(Math.random() * 3)];
-          return computerSelection;
-      } 
+    function computerPlay() {
+      computerSelection = options[Math.floor(Math.random() * 3)];
+      return computerSelection;
+    }
 
-      
   </script>
 </body>
 </html>
