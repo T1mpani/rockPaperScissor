@@ -12,12 +12,14 @@
     let computerSelection;
 
     //This is pretty ugly, can probably be simplified! 
-    if (playerSelection.toLowerCase() === "rock" || playerSelection.toLowerCase() === "paper" || playerSelection.toLowerCase() === "scissor") {
-      computerPlay();
-    } else {
-      alert("That is not an option");
-      playerSelection = prompt('Please select rock, paper or scissor');
-    } //Only runs once, even if you get it wrong twice..... hmmmm
+    while(!(playerSelection.toLowerCase() === "rock" || playerSelection.toLowerCase() === "paper" || playerSelection.toLowerCase() === "scissor")) {
+      if (playerSelection.toLowerCase() === "rock" || playerSelection.toLowerCase() === "paper" || playerSelection.toLowerCase() === "scissor") {
+        computerPlay();
+      } else {
+        alert("That is not an option");
+        playerSelection = prompt('Please select rock, paper or scissor');
+      }  
+    } 
 
     function computerPlay() {
       computerSelection = options[Math.floor(Math.random() * 3)];
