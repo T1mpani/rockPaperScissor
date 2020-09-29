@@ -13,7 +13,7 @@
 
     //This is pretty ugly, can probably be simplified! 
     if (playerSelection.toLowerCase() === "rock" || playerSelection.toLowerCase() === "paper" || playerSelection.toLowerCase() === "scissor") {
-      console.log('sweet');
+      computerPlay();
     } else {
       alert("That is not an option");
       playerSelection = prompt('Please select rock, paper or scissor');
@@ -21,7 +21,7 @@
 
     function computerPlay() {
       computerSelection = options[Math.floor(Math.random() * 3)];
-      return computerSelection;
+      console.log(computerSelection);
     }
 
   </script>
