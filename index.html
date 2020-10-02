@@ -6,27 +6,27 @@
 </head>
 <body>
   <script>
-    const options = ['Rock', 'Paper', 'Scissor'];
+    //const options = ['Rock', 'Paper', 'Scissor'];
 
     let playerSelection = prompt('Please select rock, paper or scissor');
-    let computerSelection;
+    
+    let computerSelection = function computerPlay() {
+      const options = ['Rock', 'Paper', 'Scissor'];
+      let selection = options[Math.floor(Math.random() * 3)];
+
+      console.log(selection);
+    }
+    
 
     //This is pretty ugly, can probably be simplified! 
-    while(!(playerSelection.toLowerCase() === "rock" || playerSelection.toLowerCase() === "paper" || playerSelection.toLowerCase() === "scissor")) {
+    /*while(!(playerSelection.toLowerCase() === "rock" || playerSelection.toLowerCase() === "paper" || playerSelection.toLowerCase() === "scissor")) {
       if (playerSelection.toLowerCase() === "rock" || playerSelection.toLowerCase() === "paper" || playerSelection.toLowerCase() === "scissor") {
-        computerPlay();
+        computerPlay(); //this reference will no longer be relevant, FIX ME
       } else {
         alert("That is not an option");
         playerSelection = prompt('Please select rock, paper or scissor');
       }  
-    } 
-
-    function computerPlay() {
-      computerSelection = options[Math.floor(Math.random() * 3)];
-      return computerSelection;
-    }
-
-    //this is a change being made to test this out;
+    } */
     
       
     
