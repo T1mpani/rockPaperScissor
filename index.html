@@ -8,14 +8,14 @@
   <script>
     //const options = ['Rock', 'Paper', 'Scissor'];
 
-    let playerSelection = prompt('Please select rock, paper or scissor');
-    
-    let computerSelection = function computerPlay() {
+    function computerPlay() {
       const options = ['Rock', 'Paper', 'Scissor'];
       let selection = options[Math.floor(Math.random() * 3)];
-
       return selection;
     }
+
+    const playerSelection = prompt('Please select rock, paper or scissor');
+    const computerSelection = computerPlay();
     
     //This is pretty ugly, can probably be simplified! 
     while(!(playerSelection.toLowerCase() === "rock" || playerSelection.toLowerCase() === "paper" || playerSelection.toLowerCase() === "scissor")) {
@@ -27,13 +27,11 @@
       }  
     } 
 
-    function playRound() {
-      if (playerSelection === 'rock') {
-        alert("You lose! Paper covers rock ,/,,");
-      }
+    function playRound(playerSelection, computerSelection) {
+      
     }
 
-    window.addEventListener("submit", playRound);
+    
 
 
     
