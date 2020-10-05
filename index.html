@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Page Title</title>
+  <title>Rock, Paper, Scissors</title>
   <meta charset="UTF-8"/>
 </head>
 <body>
   <script>
     
-    let playerSelection = prompt('Please enter rock, paper or scissor');
+    let playerSelection = prompt('Please enter rock, paper or scissor').toLowerCase();
     const computerSelection = computerPlay();
+    let result;
 
     function computerPlay() {
       const options = ['rock', 'paper', 'scissor'];
@@ -16,32 +17,39 @@
       return selection;
     }
     
-    function playRound() {
-      if (playerSelection.toLowerCase() === computerSelection) { 
+    function playRound(/*playerSelection, computerSelection*/) {
+      if (playerSelection === computerSelection) { 
         alert("It\'s a tie! Try again :D");
-      } else if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'scissor') {
+        result = 'tie';
+      } else if (playerSelection === 'rock' && computerSelection === 'scissor') {
         alert('You win! Rock beats scissor!');
-      } else if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'paper') {
+        result = 'win';
+      } else if (playerSelection === 'rock' && computerSelection === 'paper') {
         alert('You lose! Paper beats rock!');
-      } else if (playerSelection.toLowerCase() === 'paper' && computerSelection === 'scissor') {
+        result = 'lose';
+      } else if (playerSelection === 'paper' && computerSelection === 'scissor') {
         alert('You lose! Scissor beats paper!');
-      } else if (playerSelection.toLowerCase() === 'paper' && computerSelection === 'rock') {
+        result = 'lose';
+      } else if (playerSelection === 'paper' && computerSelection === 'rock') {
         alert('You win! Paper beats rock!');
-      } else if (playerSelection.toLowerCase() === 'scissor' && computerSelection === 'paper') {
+        result = 'win';
+      } else if (playerSelection === 'scissor' && computerSelection === 'paper') {
         alert('You win! Scissor beats paper!');
-      } else if (playerSelection.toLowerCase() === 'scissor' && computerSelection === 'rock') {
+        result = 'win';
+      } else if (playerSelection === 'scissor' && computerSelection === 'rock') {
         alert('You lose! Rock beats scissor!');
+        result = 'lose';
       }
+      return result;
     }
     
-      
-      if (!(playerSelection.toLowerCase() === "rock" || playerSelection.toLowerCase() === "paper" || playerSelection.toLowerCase() === "scissor")) {
-        alert("That is not an option");
-        playerSelection = prompt('Please enter rock, paper or scissor');
-      } 
-      
+    while (!(playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissor")) {
+      alert("That is not an option");
+      playerSelection = prompt('Please enter rock, paper or scissor');
+    } 
+    
     playRound();
-
+    console.log(result);
   </script>
 </body>
 </html>
