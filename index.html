@@ -9,87 +9,63 @@
     
     let playerSelection;
     const computerSelection = computerPlay();
-
+    
     function computerPlay() {
       const options = ['rock', 'paper', 'scissors'];
       let selection = options[Math.floor(Math.random() * 3)];
       return selection;
     }
+      
+    
 
     function playRound(playerSelection, computerSelection) {
-      //playerSelection = prompt('Please enter rock, paper, or scissors').toLowerCase();
-      while (!(playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissors")) {
-        playerSelection = prompt('Please enter rock, paper or scissors');
-      }
+      playerSelection = prompt('Enter rock paper or scissors').toLowerCase();
       let result;
-      if (playerSelection === computerSelection) {
+      if (playerSelection == computerSelection) {
         result = 'tie';
         console.log('It\'s a tie!')
-      } else if (playerSelection === 'rock') {
-        if (computerSelection === 'paper') {
+
+      } else if (playerSelection == 'rock') {
+        if (computerSelection == 'paper') {
           result = 'lose';
           console.log(`You ${result}! ${computerSelection} beats ${playerSelection}`);
-        } else if (computerSelection === 'scissors') {
+        } else if (computerSelection == 'scissors') {
           result = 'win';
           console.log(`You ${result}! ${playerSelection} beats ${computerSelection}`);
         }
       
-      } else if (playerSelection === 'paper') {
-        if (computerSelection === 'scissors') {
+      } else if (playerSelection == 'paper') {
+        if (computerSelection == 'scissors') {
           result = 'lose';
           console.log(`You ${result}! ${computerSelection} beats ${playerSelection}`);
-        } else if (computerSelection === 'rock') {
+        } else if (computerSelection == 'rock') {
           result = 'win'
           console.log(`You ${result}! ${playerSelection} beats ${computerSelection}`);
         }
       
-      } else if (playerSelection === 'scissors') {
-        if (computerSelection === 'rock') {
+      } else if (playerSelection == 'scissors') {
+        if (computerSelection == 'rock') {
           result = 'lose';
           console.log(`You ${result}! ${computerSelection} beats ${playerSelection}`);
         } 
-        } else if (computerSelection === 'paper') {
+        } else if (computerSelection == 'paper') {
           result = 'win';
           console.log(`You ${result}! ${playerSelection} beats ${computerSelection}`);
         } 
       return result;
     }
-
-    console.log(playRound(playerSelection, computerSelection));
     
-    //console.log(playRound(playerSelection, computerSelection));
 
-    //Old Function Junction
-    /*function playRound() {
-      if (playerSelection === computerSelection) { 
-        alert("It\'s a tie! Try again :D");
-        result = 'tie';
-      } else if (playerSelection === 'rock' && computerSelection === 'scissor') {
-        alert('You win! Rock beats scissor!');
-        result = 'win';
-      } else if (playerSelection === 'rock' && computerSelection === 'paper') {
-        alert('You lose! Paper beats rock!');
-        result = 'lose';
-      } else if (playerSelection === 'paper' && computerSelection === 'scissor') {
-        alert('You lose! Scissor beats paper!');
-        result = 'lose';
-      } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-        alert('You win! Paper beats rock!');
-        result = 'win';
-      } else if (playerSelection === 'scissor' && computerSelection === 'paper') {
-        alert('You win! Scissor beats paper!');
-        result = 'win';
-      } else if (playerSelection === 'scissor' && computerSelection === 'rock') {
-        alert('You lose! Rock beats scissor!');
-        result = 'lose';
-      }
-      return result;
+//the game is running the playRound function five times, but not logging anything
+    function game() {
+      for (let i = 0; i < 5; i++) {
+        playRound();
+        
+      }    
     }
     
-    while (!(playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissor")) {
-      alert("That is not an option");
-      playerSelection = prompt('Please enter rock, paper or scissor');
-    }*/
+    
+    game();
     
   </script>
 </body>
