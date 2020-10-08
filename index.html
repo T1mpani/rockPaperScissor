@@ -8,7 +8,6 @@
   <script>
     
     let playerSelection;
-    let result;
     
     function computerPlay() {
       const options = ['rock', 'paper', 'scissors'];
@@ -21,50 +20,49 @@
     function playRound() {
       playerSelection = prompt('Enter rock paper or scissors').toLowerCase();
       let computerSelection = computerPlay();
+      let result;
       if (playerSelection === computerSelection) {
-        return 'tie';
-        console.log('It\'s a tie!');
+        result = 'tie';
+        console.log('It\'s a tie!')
 
       } else if (playerSelection === 'rock') {
         if (computerSelection === 'paper') {
-          return 'lose';
+          result = 'lose';
           console.log(`You ${result}! ${computerSelection} beats ${playerSelection}`);
         } else if (computerSelection === 'scissors') {
-          return 'win';
+          result = 'win';
           console.log(`You ${result}! ${playerSelection} beats ${computerSelection}`);
         }
       
       } else if (playerSelection === 'paper') {
         if (computerSelection === 'scissors') {
-          return 'lose';
+          result = 'lose';
           console.log(`You ${result}! ${computerSelection} beats ${playerSelection}`);
         } else if (computerSelection === 'rock') {
-          return 'win';
+          result = 'win'
           console.log(`You ${result}! ${playerSelection} beats ${computerSelection}`);
         }
       
       } else if (playerSelection === 'scissors') {
         if (computerSelection === 'rock') {
-          return 'lose';
+          result = 'lose';
           console.log(`You ${result}! ${computerSelection} beats ${playerSelection}`);
         } 
         } else if (computerSelection === 'paper') {
-          return 'win';
+          result = 'win';
           console.log(`You ${result}! ${playerSelection} beats ${computerSelection}`);
         } 
+      return result;
     }
+    
 
+//the game is running the playRound function five times, but not logging anything
     function game() {
-      let userScore = 0;
-      let opponentScore = 0;
-      result = playRound()
       for (let i = 0; i < 5; i++) {
         playRound();
       }    
-      if (result === 'win') {
-        console.log('Hey it fekn worked!')
-      }
     }
+    
     
     game();
     
