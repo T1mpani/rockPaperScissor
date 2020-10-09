@@ -15,52 +15,57 @@
       return selection;
     }
       
-    
 
     function playRound() {
       playerSelection = prompt('Enter rock paper or scissors').toLowerCase();
       let computerSelection = computerPlay();
-      let result;
+      
       if (playerSelection === computerSelection) {
-        result = 'tie';
-        console.log('It\'s a tie!')
+        return 'tie';
 
       } else if (playerSelection === 'rock') {
         if (computerSelection === 'paper') {
-          result = 'lose';
-          console.log(`You ${result}! ${computerSelection} beats ${playerSelection}`);
+          return 'lose';
         } else if (computerSelection === 'scissors') {
-          result = 'win';
-          console.log(`You ${result}! ${playerSelection} beats ${computerSelection}`);
+          return 'win';
         }
       
       } else if (playerSelection === 'paper') {
         if (computerSelection === 'scissors') {
-          result = 'lose';
-          console.log(`You ${result}! ${computerSelection} beats ${playerSelection}`);
+          return 'lose';
         } else if (computerSelection === 'rock') {
-          result = 'win'
-          console.log(`You ${result}! ${playerSelection} beats ${computerSelection}`);
+          return 'win'
         }
       
       } else if (playerSelection === 'scissors') {
         if (computerSelection === 'rock') {
-          result = 'lose';
-          console.log(`You ${result}! ${computerSelection} beats ${playerSelection}`);
-        } 
-        } else if (computerSelection === 'paper') {
-          result = 'win';
-          console.log(`You ${result}! ${playerSelection} beats ${computerSelection}`);
-        } 
-      return result;
+          return 'lose';
+        }  else if (computerSelection === 'paper') {
+          return 'win'
+        }
+      }
     }
+
+    // function message() {
+      // if 
+    // }
     
 
-//the game is running the playRound function five times, but not logging anything
     function game() {
+      let outcome;
+      let userScore = 0;
+      let opponentScore = 0;
       for (let i = 0; i < 5; i++) {
-        playRound();
+        outcome = playRound();
+        console.log(outcome);
+
+        if (outcome == 'win') {
+          userScore++;
+        } else if (outcome == 'lose') {
+          opponentScore++;
+        }
       }    
+      console.log(`your score is ${userScore}, against computer\'s score of ${opponentScore}`)
     }
     
     
@@ -69,3 +74,41 @@
   </script>
 </body>
 </html>
+
+<!-- function playRound() {
+  playerSelection = prompt('Enter rock paper or scissors').toLowerCase();
+  let computerSelection = computerPlay();
+  let result; 
+  if (playerSelection === computerSelection) {
+    return 'tie';
+    console.log('It\'s a tie!')
+
+  } else if (playerSelection === 'rock') {
+    if (computerSelection === 'paper') {
+      result = 'lose';
+      console.log(`You ${result}! ${computerSelection} beats ${playerSelection}`);
+    } else if (computerSelection === 'scissors') {
+      result = 'win';
+      console.log(`You ${result}! ${playerSelection} beats ${computerSelection}`);
+    }
+  
+  } else if (playerSelection === 'paper') {
+    if (computerSelection === 'scissors') {
+      result = 'lose';
+      console.log(`You ${result}! ${computerSelection} beats ${playerSelection}`);
+    } else if (computerSelection === 'rock') {
+      result = 'win'
+      console.log(`You ${result}! ${playerSelection} beats ${computerSelection}`);
+    }
+  
+  } else if (playerSelection === 'scissors') {
+    if (computerSelection === 'rock') {
+      result = 'lose';
+      console.log(`You ${result}! ${computerSelection} beats ${playerSelection}`);
+    } 
+    } else if (computerSelection === 'paper') {
+      result = 'win';
+      console.log(`You ${result}! ${playerSelection} beats ${computerSelection}`);
+    } 
+  return result;
+} -->
