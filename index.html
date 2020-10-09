@@ -17,44 +17,48 @@
       
 
     function playRound() {
-      playerSelection = prompt('Enter rock paper or scissors').toLowerCase();
+      playerSelection = prompt('Enter rock paper or scissors').toLowerCase().trim();
       let computerSelection = computerPlay();
       
       if (playerSelection === computerSelection) {
+        console.log(`${playerSelection} vs. ${computerSelection}`)
         return 'tie';
 
       } else if (playerSelection === 'rock') {
         if (computerSelection === 'paper') {
+          console.log('opponent\'s paper beats your rock');
           return 'lose';
         } else if (computerSelection === 'scissors') {
+          console.log('your rock beats opponent\'s scissors');
           return 'win';
         }
       
       } else if (playerSelection === 'paper') {
         if (computerSelection === 'scissors') {
+          console.log('opponent\'s scissors beats your paper');
           return 'lose';
-        } else if (computerSelection === 'rock') {
-          return 'win'
+        } else if (computerSelection === 'rock') { 
+          console.log('your paper beats opponent\'s rock');
+          return 'win';
         }
       
       } else if (playerSelection === 'scissors') {
         if (computerSelection === 'rock') {
+          console.log('opponent\'s rock beats your scissors');
           return 'lose';
         }  else if (computerSelection === 'paper') {
-          return 'win'
+          console.log('your scissors beats opponent\'s paper');
+          return 'win';
         }
       }
     }
 
-    // function message() {
-      // if 
-    // }
-    
 
     function game() {
       let outcome;
       let userScore = 0;
       let opponentScore = 0;
+
       for (let i = 0; i < 5; i++) {
         outcome = playRound();
         console.log(outcome);
@@ -65,7 +69,13 @@
           opponentScore++;
         }
       }    
-      console.log(`your score is ${userScore}, against computer\'s score of ${opponentScore}`)
+      if (userScore === opponentScore) {
+        console.log(`Tie Game! You scored ${userScore}, computer scored ${opponentScore}`);
+      } else if (userScore > opponentScore) {
+        console.log(`You Win! You scored ${userScore}, computer scored ${opponentScore}`);
+      } else if (userScore < opponentScore) {
+      console.log(`You Lose! You scored ${userScore}, computer scored ${opponentScore}`)
+      }
     }
     
     
@@ -74,41 +84,3 @@
   </script>
 </body>
 </html>
-
-<!-- function playRound() {
-  playerSelection = prompt('Enter rock paper or scissors').toLowerCase();
-  let computerSelection = computerPlay();
-  let result; 
-  if (playerSelection === computerSelection) {
-    return 'tie';
-    console.log('It\'s a tie!')
-
-  } else if (playerSelection === 'rock') {
-    if (computerSelection === 'paper') {
-      result = 'lose';
-      console.log(`You ${result}! ${computerSelection} beats ${playerSelection}`);
-    } else if (computerSelection === 'scissors') {
-      result = 'win';
-      console.log(`You ${result}! ${playerSelection} beats ${computerSelection}`);
-    }
-  
-  } else if (playerSelection === 'paper') {
-    if (computerSelection === 'scissors') {
-      result = 'lose';
-      console.log(`You ${result}! ${computerSelection} beats ${playerSelection}`);
-    } else if (computerSelection === 'rock') {
-      result = 'win'
-      console.log(`You ${result}! ${playerSelection} beats ${computerSelection}`);
-    }
-  
-  } else if (playerSelection === 'scissors') {
-    if (computerSelection === 'rock') {
-      result = 'lose';
-      console.log(`You ${result}! ${computerSelection} beats ${playerSelection}`);
-    } 
-    } else if (computerSelection === 'paper') {
-      result = 'win';
-      console.log(`You ${result}! ${playerSelection} beats ${computerSelection}`);
-    } 
-  return result;
-} -->
